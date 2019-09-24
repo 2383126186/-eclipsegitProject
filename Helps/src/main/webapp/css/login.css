@@ -1,0 +1,69 @@
+.indax{
+	position: absolute;
+	top: 10%;
+	left: 50%;
+	width: 700px;
+	height: 600px;
+	background-image: url(../img/2.jpg);
+}
+.bang{
+	position: absolute;
+	top: 4%;
+	left:42%;
+	font-size: 30px;
+	color: #97FFFF;
+}
+.uname{
+	position: absolute;
+	top: 30%;
+	left: 23%;
+	width: 350px;
+	height: 30px;
+	border: none;
+	border-bottom: none;
+	font-size:25px;
+}
+.upass{
+	position: absolute;
+	top: 45%;
+	left: 23%;
+	width: 350px;
+	height: 30px;
+	border: none;
+	font-size:25px;
+}
+.sub{
+	position: absolute;
+	top: 60%;
+	left: 23%;
+	width:350px;
+	height: 40px;
+	border: none;
+	border-radius: 20px;
+	outline: none;
+	color:#E0EEE0 ;
+	background: #FFB90F;
+}
+.zhu{
+	position: absolute;
+	top: 70%;
+	left: 23%;
+	color: #BFEFFF;
+}
+.ti{
+	position: absolute;
+	top: 28%;
+	left: 76%;
+	font-size: 20px;
+	color:red;
+}
+.wang{
+	position: absolute;
+	top: 61%;
+	left: 76%;
+	font-size: 20px;
+	color: #BFEFFF;
+}
+.sub:hover{
+	background: #FFA500;
+}

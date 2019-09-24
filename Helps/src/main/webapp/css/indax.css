@@ -1,0 +1,122 @@
+.home{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	
+}
+.home1{
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 70px;
+
+	background: rgb(245,245,245);
+}
+.im{
+	position: absolute;
+	left: 18%;
+}
+.biao{
+	position: absolute;
+	top: -11px;
+	left: 24%;
+}
+.name{
+	position: absolute;
+	left: 78%;
+	top: 10%;
+}
+.home2{
+	position: absolute;
+	top: 32%;
+	left: 90%;
+	width: 80px;
+	height: 30px;
+	border: none;
+	cursor: pointer;
+}
+.home3{
+	position: absolute;
+	top: 10%;
+	left: 18%;
+	width:60%;
+	height: 90%;
+
+}
+.home4{
+	position: absolute;
+
+	top: 40%;
+	left: -10%;
+	width: 120%;
+	height: 40%
+
+}
+.home6{
+	position: absolute;
+	top: -25%;
+	left: 45%;
+	width: 100%;
+}
+.img{
+	position: absolute;
+	top:10%;
+	left: 87%;
+}
+.site{
+	position: absolute;
+	left: 50%;	
+	width: 300px;
+	height: 10px;
+}
+.bill{
+	position: absolute;
+	top: 20%;
+	left:21%;
+	width: 50%;
+	height: 6%;
+}
+.seek{
+	position: absolute;
+	top: 20%;
+	left:67%;
+	width:12%;
+	height: 6.67%;
+	border: none;
+	background: cornflowerblue;
+	font-size: 20px;
+}
+.es{
+	position: absolute;
+	top: 18%;
+	left:80%;
+}
+.biao1{
+	position: absolute;
+	top: 100%;
+	left: 43%;
+	font-size: 40px;
+	color: red;
+}
+.butt{
+	position: absolute;
+	top: 20%;
+
+}
+.vis{
+	position: absolute;
+
+	top:100%;
+	left:40%;
+	width: 20%;
+	height: 20%;
+
+}
+.home2:hover{
+	background: #FFA500;
+}
+#prompt{
+	position: absolute;
+	left:55%;
+}

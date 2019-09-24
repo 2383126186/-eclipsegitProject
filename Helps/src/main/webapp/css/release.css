@@ -1,0 +1,50 @@
+.home{
+	position: absolute;
+	top:30%;
+	left:50%;
+	width: 100%;
+	height: 100%;
+}
+.site{
+	position: absolute;
+	top: 30%;
+	left: 48%;
+}
+.money{
+	position: absolute;
+	top: 40%;
+	left: 48%;
+}
+.home2{
+	position: absolute;
+	top: 50%;
+	left: 20%;
+	width: 70%;
+	height: 30%;
+}
+.si{
+	position: absolute;
+	top: 30%;
+	left: 45%;
+}
+.mo{
+	position: absolute;
+	top: 40%;
+	left: 45%;
+}
+.erro{
+	position: absolute;
+	top: 64%;
+	left: 56%;
+}
+.fa{
+	position: absolute;
+	top: 10%;
+	left: 49%;
+	font-size: 20px;
+}
+.home3{
+	position: absolute;
+	top: 40%;
+	left: 33%;
+}

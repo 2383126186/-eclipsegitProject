@@ -1,0 +1,43 @@
+.home{
+	position: absolute;
+	left: 30%;
+	top:20%;
+	width: 40%;
+	height: 50%;
+	background: #FFDAB9;
+}
+.tian{
+	position: absolute;
+	left: 50%;
+	top:5%;
+}
+.name{
+	position: absolute;
+	left: 28%;
+	top:20%;
+}
+.idCard{
+	position: absolute;
+	left: 30%;
+	top:30%;
+}
+.time{
+	position: absolute;
+	left: 25%;
+	top:40%;
+}
+.site{
+	position: absolute;
+	left: 30%;
+	top:50%;
+}
+.gender{
+	position: absolute;
+	left: 40%;
+	top:60%;
+}
+.sub{
+	position: absolute;
+	left: 40%;
+	top:70%;
+}

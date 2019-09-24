@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.Mapper">
+	<!-- 判断是不是管理员 -->                            
+	<select id="queryIfAdministrator" resultType="com.entity.User">
+		select state,uname,img from u_user where uname = #{uname} and upass = #{upass}
+	</select>
+	<!-- 判断用户名是否存在 -->
+	<select id="queryIfUser"  resultType="com.entity.User">
+		select uname from u_user 
+		<where>
+	 	    <if test="name !=null and name !='' ">
+	 		   uname = #{uname}
+	 		</if>
+	 		<if test="name !=null and name !='' ">
+	 		   phone = #{phone}
+	 		</if>
+	 	</where>	
+	</select>
+
+	<!-- 添加用户 -->
+	<insert id="addUser">
+		insert into u_user(uname,upass,phone,headimg,idCard,name,site,state,age,gender)values(#{uname},#{upass},#{phone},'head.png','0','0','0',0,'2000-08-08',0)"
+	</insert>
+	<!-- 判断用户是否存在 -->
+	<select id="queryIfUserExist" resultType="com.entity.User">
+		select uname from u_user where uname = #{uname} and phone = #{phone}
+	</select>
+	<!-- 修改用户密码 -->
+	<update id="amendUserUpass" >
+		update u_user set upass = #{upass} where uname = #{uname}
+	</update>
+	<!-- 查询所有未接订单 -->
+	<select id="queryAllTask" resultType="com.entity.Task">
+		select * from task where state = 0 and receive = 0 order by time desc
+	</select>
+	<!-- 查询是否存在该用户 -->
+	<select id="queryAcceptId"  resultType="com.entity.User">
+		select id from u_user where uname = #{uname}
+	</select>
+	<!-- 调用dao储存接取并转换为以接取 -->
+	<update id="amendTask">
+		update task set receive = #{u.id},state = 1 where id = #{t.id}
+	</update>
+	<!-- 添加订单 -->
+	<insert id="addMyTask">
+		insert into task(uname,site,money,message,time,state,receive,prompt) values(#{uname},#{site},#{money},#{message},now(),0,0,0)
+	</insert>
+	<!-- 填写完整信息 -->
+	<update id="addAmendUser">
+		update u_user set idCard = #{idCard},name = #{name},site =#{site},gender=#{gender},age=#{age} where uname =#{uname}
+	</update>
+	<!-- 查看是否是自己的订单 -->
+	<select id="queryIfMyTask" resultType="com.entity.Task">
+		select uname from task where id = #{id}
+	</select>
+	<!-- 查询我的订单 -->
+	<select id="queryAllMyTask" resultType="com.entity.Task">
+		select * from task where uname = #{uname}
+	</select>
+	<!-- 查找订单 -->
+	<select id="seekMyTask" resultType="com.entity.Task">
+		delete from task where id = #{id}
+	</select>
+	<!-- 修改订单 -->
+	<update id="amendMyTask">
+		update task set site =#{site},message = #{message},money =#{money} where id = #{id}
+	</update>
+	<!-- 预约订单 -->
+	<insert id="appointmentMyTask">
+		insert into task(uname,site,money,message,time,state,receive,prompt) values(#{uname},#{site},#{monry},#{message},#{time},0,0,0)
+	</insert>
+	<!-- 查询分页 -->
+	<select id="queryAllTask5" resultType="com.entity.Task">
+		select * from task 
+	</select>
+	<!-- 删除订单 -->
+	<delete id="removeAssignTask">
+		delete from task where id = #{id}
+	</delete>
+	<!-- 查询我的接单 -->
+	<select id="queryMyReceiving" resultType="com.entity.Task">
+		select * from task where state = 1 and receive = #{receive}
+	</select>
+	<!-- 分页查询 -->
+	<select id="pagingMyReceivingTask" resultType="com.entity.Task">
+		select * from task where uname like '%${message}%' or message like '%${message}%' or site like '%${message}%' and state = 0
+	</select>
+	<!-- 修改订单为已完成 -->
+	<update id="amendMyAccomplish">
+		update task set state = 2 where id = #{id}
+	</update>
+	<!-- 收藏订单 -->
+	<insert id="collectMyTask">
+		insert into collector(uid,tid) values(#{uid},#{tid})
+	</insert>
+	<!-- 我的收藏 -->
+	<select id="queryMyCollec">
+		select * from collector c,task t where c.uid =#{id} and c.tid = t.id
+	</select>
+	<!-- 取消收藏 -->
+	<delete id="cancelMyCollect">
+		delete from collector where id = #{id} 
+	</delete>
+	<!-- 判断是不是管理员 -->
+	<select id="IfAdministrator" resultType="com.entity.User">
+		select state from u_user where uname = #{uname}
+	</select>
+	<!-- 管理员查询所有订单 -->
+	<select id="administratorLookTask" resultType="com.entity.Task">
+		select * from task
+	</select>
+	<!-- 管理员查询所有用户 -->
+	<select id="administratorLookUser" resultType="com.entity.User">
+		select * from u_user
+	</select>
+	<!-- 管理员删除用户 -->
+	<update id="administratorDeleteUser">
+		delete from u_user where id = #{id}
+	</update>
+	<!-- 查询该订单的状态 -->
+	<select id="queryTaskState" resultType="com.entity.Task">
+		select state from task where id = #{id}
+	</select>
+	<!-- 提示 -->
+	<select id="taskHint" resultType="com.entity.Task">
+		select id from task where (state = 1 and prompt = 0 and uname = #{uname}) or (state = 2 and prompt = 1 and uname = #{uname})
+	</select>
+	<!-- 修改状态 -->
+	<update id="amendTaskHintState">
+		update task set prompt = 1 where uname = #{uname} and state = 1
+	</update>
+	<!-- 修改提示状态（完成订单） -->
+	<update id="amendTaskHintStateComplete">
+		update task set prompt = 2 where uname = #{uname} and state = 2
+	</update>
+	<!-- 储存评论 -->
+	<insert id="addMyComments">
+		insert into comment(tid,uname,comment) values(#{tid},#{uname},#{comment})
+	</insert>
+	<!-- 显示信息 -->
+	<select id="showMyMessage" resultType="com.entity.Comments">
+		select * from comment where tid = #{tid}
+	</select>
+	<!-- 放弃订单 -->
+	<update id="cancelMyTask">
+		update task set receive=0 ,state = 0 where id = #{id}
+	</update>
+</mapper>

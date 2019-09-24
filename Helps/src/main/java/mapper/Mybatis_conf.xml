@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	 <!-- 指定文件 -->
+	 <properties resource="mapper/db.properties" />
+	 <!-- 
+		 <settinngs>
+		 		<settinng></settinng>
+		 </settinngs>
+	  -->
+	 <!-- 设置别名 -->
+	 <!--  <typeAliass>
+	 	单个别名
+	 	<typeAlias type="" alias=""/>
+	 	设置所有别名   别名->类名忽略大小写
+	 	<package name="mybatisproject/Person.java"/>
+	 </typeAliass> -->
+	
+	 <!-- 配置转换器 -->
+	  
+	   
+		
+		    <settings>
+		        <!-- 打印查询语句 -->
+		        <setting name="logImpl" value="STDOUT_LOGGING" />
+		    </settings>
+	 
+	 <!-- 指定数据库的id(需要使用哪个数据库)  也可以手工指定哪个数据库
+	 	SqlSessionFactory sessionfactory = new SqlSessionFactoryBuilder().build(reder,"development");
+	 -->
+	 
+	  <!-- <plugins>
+        <plugin interceptor="com.github.pagehelper.PageInterceptor">
+           <property name="offsetAsPageNum" value="false"/>
+           <property name="rowBoundsWithCount" value="false"/>
+           <property name="pageSizeZero" value="true"/>
+           <property name="reasonable" value="true"/>           
+           <property name="supportMethodsArguments" value="true"/>
+           <property name="returnPageInfo" value="none"/>
+        </plugin>
+     </plugins> -->
+	 
+	 
+	 <environments default="development">
+	 <!-- 数据库 -->
+	 <environment id="development">
+	 <!-- 事务的提交方式
+	 	JDBC 手工
+	 	MANAGED 将事务交又其他组件自动托管(如：spring)默认会关闭连接
+	 	如果用了可以手动取消关闭       <property name="closeConnection" value="falsea"/>
+	  -->
+		 <transactionManager type="JDBC"/>
+		 	<!-- 数据源
+		 	UNPOOLED 传统jdbc模式（使用需要每次打开和关闭，注：非常消耗性能）
+		 	POOLED 数据库连接池
+		 	JNDI 从tomcat里获取连接池
+		 	 -->
+			 <dataSource type="POOLED">
+			 <!-- 配置数据库信息 -->
+				 <property name="driver" value="${driver}"/>
+				 <property name="url" value="${url}"/>
+				 <property name="username" value="${username}"/>
+				 <property name="password" value="${password}"/>
+			 </dataSource>
+	</environment>
+	</environments>
+		<!-- 映射给哪一个数据库配置文件 -->
+	 <mappers>
+		 <mapper resource="mapper/Mapper.xml"/>
+	 </mappers>			
+</configuration>
