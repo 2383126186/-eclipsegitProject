@@ -18,7 +18,6 @@ import com.serviceInte.ServiceInterface;
 @WebServlet("/administratordelectorder")
 public class AdministratorDelectOrder extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
     /**
      * @see HttpServlet#HttpServlet()
      */
